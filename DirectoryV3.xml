@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <trees>
+     <tree path="/src/main/java/org/apache/ibatis/parsing" title="解析处理配置文件和动态SQL的占位符"
+           extension="" presentableText="" tooltipTitle="" icon="" textColor="255,105,109"
+           backgroundColor=""/>
+ </trees>
