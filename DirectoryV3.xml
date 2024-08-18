@@ -3,4 +3,8 @@
      <tree path="/src/main/java/org/apache/ibatis/parsing" title="解析处理配置文件和动态SQL的占位符"
            extension="" presentableText="" tooltipTitle="" icon="" textColor="255,105,109"
            backgroundColor=""/>
+     <tree path="/src/main/java/org/apache/ibatis/parsing/XPathParser.java" title="xpath解析器"
+           textColor="255,105,109"/>
+     <tree path="/src/main/java/org/apache/ibatis/parsing/GenericTokenParser.java" textColor="255,105,109"
+           title="普通记号解析器，处理#{}和${}参数"/>
  </trees>

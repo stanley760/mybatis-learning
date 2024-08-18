@@ -55,6 +55,7 @@ public class GenericTokenParser {
     final StringBuilder builder = new StringBuilder();
     StringBuilder expression = null;
     do {
+      // 搜索开始token的前一个字符，如果前一个字符是反斜杠，则说明这个token是escape的，需要去掉反斜杠，继续处理下一个token
       if (start > 0 && src[start - 1] == '\\') {
         // this open token is escaped. remove the backslash and continue.
         builder.append(src, offset, start - offset - 1).append(openToken);
