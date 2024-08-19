@@ -7,9 +7,9 @@
         <id column="id" property="id" javaType="long" jdbcType="BIGINT" />
         <result column="user_name" property="userName" javaType="string"
                 jdbcType="VARCHAR" typeHandler="org.apache.ibatis.debug.handler.CustomerHander" />
-        <result column="age" property="age" javaType="int" jdbcType="INT"/>
+        <result column="age" property="age" javaType="int" jdbcType="INTEGER"/>
     </resultMap>
-    <select id="getUserById" parameterType="long" resultMap="userMap">
+    <select id="getUserById" parameterType="long" resultType="org.apache.ibatis.debug.entity.User">
         select
             id,user_name as userName,age from user where id=#{id}
     </select>

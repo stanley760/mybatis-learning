@@ -27,6 +27,6 @@
     </environments>
     <!-- 定义映射器 -->
     <mappers>
-        <package name="org.apache.ibatis.debug.mapper"/>
+        <mapper class="org.apache.ibatis.debug.mapper.UserMapper"/>
     </mappers>
 </configuration>
