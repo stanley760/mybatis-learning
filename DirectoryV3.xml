@@ -7,4 +7,6 @@
            textColor="255,105,109"/>
      <tree path="/src/main/java/org/apache/ibatis/parsing/GenericTokenParser.java" textColor="255,105,109"
            title="普通记号解析器，处理#{}和${}参数"/>
+     <tree path="/src/main/java/org/apache/ibatis/debug" title="debug 调试入口" extension="" presentableText=""
+           tooltipTitle="" icon="" textColor="" backgroundColor=""/>
  </trees>
