@@ -1,7 +1,5 @@
 package org.apache.ibatis.debug.entity;
 
-import lombok.Data;
-
 /**
  * @author ywb
  * @description:

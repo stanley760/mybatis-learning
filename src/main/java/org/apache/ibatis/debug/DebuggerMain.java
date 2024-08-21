@@ -1,6 +1,5 @@
 package org.apache.ibatis.debug;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.debug.entity.User;
 import org.apache.ibatis.debug.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
@@ -19,9 +18,9 @@ import java.io.InputStream;
  * @datetime 2024-08-19 9:53
  * @version: 1.0
  */
-public class Main {
+public class DebuggerMain {
 
-    private static final Logger log = LoggerFactory.getLogger(Main.class);
+    private static final Logger log = LoggerFactory.getLogger(DebuggerMain.class);
 
     public static void main(String[] args) throws IOException {
         String resource = "mybatis-config.xml";
@@ -31,7 +30,7 @@ public class Main {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.getUserById(1L);
-        log.info("{}:{}:{}", user.getId(), user.getUserName(), user.getAge());
+        log.info("id: {} name:{} age:{}", user.getId(), user.getUserName(), user.getAge());
         sqlSession.commit();
         sqlSession.close();
     }

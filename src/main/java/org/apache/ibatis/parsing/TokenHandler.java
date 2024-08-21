@@ -19,5 +19,16 @@ package org.apache.ibatis.parsing;
  * @author Clinton Begin
  */
 public interface TokenHandler {
-  String handleToken(String content);
+
+    /**
+     * 处理 Token （对应有四个不同的子类实现）
+     * 1. BindingTokenHandler  使用OGNL表达式，完成对content内容的解析
+     * 2. VariableTokenHandler 占位符${}格式的处理
+     * 3. DynamicCheckerTokenParser 解析XML的Sql语句时，查看是否Sql里是否包含${}，如果包含就叫动态SQl
+     * 4. ParameterMappingTokenHandler 使用?进行替换,并且将#{}里的内容转变成ParameterMapping对象。
+     *
+     * @param content Token 字符串
+     * @return 处理后的结果
+     */
+    String handleToken(String content);
 }

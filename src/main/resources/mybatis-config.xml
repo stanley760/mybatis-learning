@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties resource="db.properties"/>
     <settings>
         <setting name="lazyLoadingEnabled" value="true"/>
         <!-- <setting name="aggressiveLazyLoading" value="false"/> -->
@@ -18,15 +19,15 @@
         <environment id="development">
             <transactionManager type="JDBC" />
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis" />
-                <property name="username" value="root" />
-                <property name="password" value="123456" />
+                <property name="driver" value="${db.driver}" />
+                <property name="url" value="${db.url}" />
+                <property name="username" value="${db.username}" />
+                <property name="password" value="${db.password}" />
             </dataSource>
         </environment>
     </environments>
     <!-- 定义映射器 -->
     <mappers>
-        <mapper class="org.apache.ibatis.debug.mapper.UserMapper"/>
+        <mapper resource="org/apache/ibatis/debug/mapper/UserMapper.xml"/>
     </mappers>
 </configuration>

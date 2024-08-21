@@ -6,7 +6,15 @@
      <tree path="/src/main/java/org/apache/ibatis/parsing/XPathParser.java" title="xpath解析器"
            textColor="255,105,109"/>
      <tree path="/src/main/java/org/apache/ibatis/parsing/GenericTokenParser.java" textColor="255,105,109"
-           title="普通记号解析器，处理#{}和${}参数"/>
-     <tree path="/src/main/java/org/apache/ibatis/debug" title="debug 调试入口" extension="" presentableText=""
-           tooltipTitle="" icon="" textColor="255,12,30"/>
- </trees>
+           title="⭐️通用标记符解析器，处理#{}和${}参数" extension="" presentableText="" tooltipTitle="" icon=""
+           backgroundColor=""/>
+     <tree path="/src/main/java/org/apache/ibatis/debug" title="debug 调试入口" textColor="255,12,30"/>
+     <tree path="/src/main/java/org/apache/ibatis/debug/DebuggerMain.java" title="debug运行class" textColor="255,12,30"/>
+     <tree path="/src/main/java/org/apache/ibatis/debug/handler" title="自定义类型处理器" textColor="255,12,30"/>
+     <tree path="/src/main/java/org/apache/ibatis/parsing/PropertyParser.java" title="动态属性解析器" textColor="255,105,109"/>
+    <tree path="/src/main/java/org/apache/ibatis/parsing/TokenHandler.java" title="token 处理器" textColor="255,105,109"/>
+
+    <tree path="/src/main/java/org/apache/ibatis/reflection" title="反射" textColor="120,255,161"/>
+    <tree path="/src/main/java/org/apache/ibatis/reflection/Reflector.java" title="反射器" textColor="120,255,161"/>
+
+</trees>
