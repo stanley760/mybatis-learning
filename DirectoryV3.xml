@@ -16,5 +16,6 @@
 
     <tree path="/src/main/java/org/apache/ibatis/reflection" title="反射" textColor="120,255,161"/>
     <tree path="/src/main/java/org/apache/ibatis/reflection/Reflector.java" title="反射器" textColor="120,255,161"/>
+    <tree path="/src/main/java/org/apache/ibatis/exceptions" title="异常" textColor="82,129,255"/>
 
 </trees>

@@ -98,8 +98,11 @@ public class Reflector {
         if (isRecord(type)) {
             addRecordGetMethods(classMethods);
         } else {
+            // 获取属性对应的 getter 方法
             addGetMethods(classMethods);
+            // 获取属性对应的 setter 方法
             addSetMethods(classMethods);
+            // 获取字段及其父类的字段
             addFields(clazz);
         }
         readablePropertyNames = getMethods.keySet().toArray(new String[0]);

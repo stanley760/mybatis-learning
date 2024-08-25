@@ -27,7 +27,7 @@
   </parent>
 
   <groupId>org.mybatis</groupId>
-  <artifactId>mybatis</artifactId>
+  <artifactId>mybatis-learning</artifactId>
   <version>3.5.17-SNAPSHOT</version>
 
   <name>mybatis</name>
