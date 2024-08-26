@@ -28,14 +28,21 @@ import org.apache.ibatis.reflection.wrapper.ObjectWrapper;
 import org.apache.ibatis.reflection.wrapper.ObjectWrapperFactory;
 
 /**
+ * Mybatis框架用于访问对象属性的工作类，底层实现为java的反射基础。
+ * 目前只支持JavaBean、Collection、Map三种类型对象访问，也可以自定义其他类型
+ *
  * @author Clinton Begin
  */
 public class MetaObject {
-
+  // 持有原始对象
   private final Object originalObject;
+  // 封装原始对象的包装器，可以获取、设置属性的值以及操作集合。
   private final ObjectWrapper objectWrapper;
+  // 对象工厂，主要在自定义创建对象时使用。
   private final ObjectFactory objectFactory;
+  // 包装器工厂，用于获取包装器的实例。
   private final ObjectWrapperFactory objectWrapperFactory;
+  // 反射工厂，主要用于创建和获取对应的Reflector。
   private final ReflectorFactory reflectorFactory;
 
   private MetaObject(Object object, ObjectFactory objectFactory, ObjectWrapperFactory objectWrapperFactory,

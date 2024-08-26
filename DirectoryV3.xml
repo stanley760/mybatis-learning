@@ -14,8 +14,12 @@
      <tree path="/src/main/java/org/apache/ibatis/parsing/PropertyParser.java" title="动态属性解析器" textColor="255,105,109"/>
     <tree path="/src/main/java/org/apache/ibatis/parsing/TokenHandler.java" title="token 处理器" textColor="255,105,109"/>
 
-    <tree path="/src/main/java/org/apache/ibatis/reflection" title="反射" textColor="120,255,161"/>
+    <tree path="/src/main/java/org/apache/ibatis/reflection" title="反射" textColor="255,150,72"/>
     <tree path="/src/main/java/org/apache/ibatis/reflection/Reflector.java" title="反射器" textColor="120,255,161"/>
     <tree path="/src/main/java/org/apache/ibatis/exceptions" title="异常" textColor="82,129,255"/>
+    <tree path="/src/main/java/org/apache/ibatis/datasource" title="数据源" textColor="151,255,37"/>
+    <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled/UnpooledDataSourceFactory.java" title="无池化数据源工厂" textColor="151,255,37"/>
+    <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled/UnpooledDataSource.java" title="无池化数据源" textColor="151,255,37"/>
+    <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled" title="无池化相关类" textColor="151,255,37"/>
 
 </trees>
