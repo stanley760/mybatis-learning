@@ -270,9 +270,11 @@ public class UnpooledDataSource implements DataSource {
         if (defaultNetworkTimeout != null) {
             conn.setNetworkTimeout(Executors.newSingleThreadExecutor(), defaultNetworkTimeout);
         }
+        // 设置自动提交
         if (autoCommit != null && autoCommit != conn.getAutoCommit()) {
             conn.setAutoCommit(autoCommit);
         }
+        // 设置事务隔离级别
         if (defaultTransactionIsolationLevel != null) {
             conn.setTransactionIsolation(defaultTransactionIsolationLevel);
         }

@@ -32,16 +32,25 @@ public class PoolState {
   private final ReentrantLock lock = new ReentrantLock();
 
   protected PooledDataSource dataSource;
-
+  // 空闲的连接池资源集合
   protected final List<PooledConnection> idleConnections = new ArrayList<>();
+  // 活跃的连接池资源集合
   protected final List<PooledConnection> activeConnections = new ArrayList<>();
+  // 请求次数
   protected long requestCount;
+  // 累计的请求连接的时间
   protected long accumulatedRequestTime;
+  // 累计的使用连接的时间。从连接取出到归还，算一次使用的时间；
   protected long accumulatedCheckoutTime;
+  // 使用连接超时的次数
   protected long claimedOverdueConnectionCount;
+  // 累计超时时间
   protected long accumulatedCheckoutTimeOfOverdueConnections;
+  // 累计等待时间
   protected long accumulatedWaitTime;
+  // 等待次数
   protected long hadToWaitCount;
+  // 无效的连接次数
   protected long badConnectionCount;
 
   public PoolState(PooledDataSource dataSource) {

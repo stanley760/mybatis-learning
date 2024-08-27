@@ -21,5 +21,7 @@
     <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled/UnpooledDataSourceFactory.java" title="无池化数据源工厂" textColor="151,255,37"/>
     <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled/UnpooledDataSource.java" title="无池化数据源" textColor="151,255,37"/>
     <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled" title="无池化相关类" textColor="151,255,37"/>
+    <tree path="/src/main/java/org/apache/ibatis/datasource/pooled" title="池化相关类" textColor="151,255,37"/>
+    <tree path="/src/main/java/org/apache/ibatis/datasource/jndi" title="JNDI 上下文的引用" textColor="151,255,37"/>
 
 </trees>
