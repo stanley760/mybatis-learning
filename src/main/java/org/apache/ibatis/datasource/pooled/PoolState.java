@@ -30,7 +30,7 @@ public class PoolState {
   // PooledDataSource#getPoolState().
   // A possible fix is to create and return a 'snapshot'.
   private final ReentrantLock lock = new ReentrantLock();
-
+  // 所属的 PooledDataSource 对象
   protected PooledDataSource dataSource;
   // 空闲的连接池资源集合
   protected final List<PooledConnection> idleConnections = new ArrayList<>();
