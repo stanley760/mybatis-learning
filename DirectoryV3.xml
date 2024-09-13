@@ -8,6 +8,7 @@
      <tree path="/src/main/java/org/apache/ibatis/parsing/GenericTokenParser.java" textColor="255,105,109"
            title="⭐️通用标记符解析器，处理#{}和${}参数" extension="" presentableText="" tooltipTitle="" icon=""
            backgroundColor=""/>
+     <tree path="/src/main/java/org/apache/ibatis/debug/entity" title="实体-用户类" textColor="255,12,30"/>
      <tree path="/src/main/java/org/apache/ibatis/debug" title="debug 调试入口" textColor="255,12,30"/>
      <tree path="/src/main/java/org/apache/ibatis/debug/DebuggerMain.java" title="debug运行class" textColor="255,12,30"/>
      <tree path="/src/main/java/org/apache/ibatis/debug/handler" title="自定义类型处理器" textColor="255,12,30"/>
@@ -23,5 +24,6 @@
     <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled" title="无池化相关类" textColor="151,255,37"/>
     <tree path="/src/main/java/org/apache/ibatis/datasource/pooled" title="池化相关类" textColor="151,255,37"/>
     <tree path="/src/main/java/org/apache/ibatis/datasource/jndi" title="JNDI 上下文的引用" textColor="151,255,37"/>
+    <tree path="/src/main/java/org/apache/ibatis/transaction" title="事务"/>
 
 </trees>
