@@ -28,6 +28,9 @@ public class PerpetualCache implements Cache {
 
   private final String id;
 
+  /**
+   * 初始化map, 用于存储缓存对象的键值对。
+   */
   private final Map<Object, Object> cache = new HashMap<>();
 
   public PerpetualCache(String id) {

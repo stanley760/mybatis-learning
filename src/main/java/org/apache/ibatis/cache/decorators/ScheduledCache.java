@@ -82,6 +82,12 @@ public class ScheduledCache implements Cache {
     return delegate.equals(obj);
   }
 
+  /**
+   * lastClear 最新清除时间戳
+   * 如果已经过了 clearInterval(默认1个小时, 可通过setClearInterval设置自定义清除时间)
+   * 就清除缓存，并返回 true。否则返回 false.
+   * @return {@link java.lang.Boolean}
+   */
   private boolean clearWhenStale() {
     if (System.currentTimeMillis() - lastClear > clearInterval) {
       clear();

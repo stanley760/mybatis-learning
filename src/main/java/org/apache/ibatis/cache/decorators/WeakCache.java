@@ -31,9 +31,20 @@ import org.apache.ibatis.cache.Cache;
  * @author Clinton Begin
  */
 public class WeakCache implements Cache {
+  /**
+   * 强引用键的引用列表。
+   */
   private final Deque<Object> hardLinksToAvoidGarbageCollection;
+
+  /**
+   *
+   */
   private final ReferenceQueue<Object> queueOfGarbageCollectedEntries;
   private final Cache delegate;
+
+  /**
+   *
+   */
   private int numberOfHardLinks;
   private final ReentrantLock lock = new ReentrantLock();
 

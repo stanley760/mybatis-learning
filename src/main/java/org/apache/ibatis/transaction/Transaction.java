@@ -29,6 +29,8 @@ public interface Transaction {
   /**
    * Retrieve inner database connection.
    *
+   * 检索内部数据库连接。获取事务
+   *
    * @return DataBase connection
    *
    * @throws SQLException
@@ -38,6 +40,7 @@ public interface Transaction {
 
   /**
    * Commit inner database connection.
+   * 提交内部数据库连接。-- 提交事务
    *
    * @throws SQLException
    *           the SQL exception
@@ -46,6 +49,7 @@ public interface Transaction {
 
   /**
    * Rollback inner database connection.
+   * 回滚内部数据库连接。-- 回滚事务
    *
    * @throws SQLException
    *           the SQL exception
@@ -54,6 +58,7 @@ public interface Transaction {
 
   /**
    * Close inner database connection.
+   * 关闭内部数据库连接。 -- 关闭连接
    *
    * @throws SQLException
    *           the SQL exception
@@ -62,6 +67,7 @@ public interface Transaction {
 
   /**
    * Get transaction timeout if set.
+   * 获取已设置的事务超时时间。 -- 获取事务的超时时间
    *
    * @return the timeout
    *

@@ -38,11 +38,29 @@ import org.apache.ibatis.transaction.TransactionException;
 public class JdbcTransaction implements Transaction {
 
   private static final Log log = LogFactory.getLog(JdbcTransaction.class);
-
+  /**
+   * jdbc 连接
+   */
   protected Connection connection;
+
+  /**
+   * DataSource 对象
+   */
   protected DataSource dataSource;
+
+  /**
+   * 事务隔离级别
+   */
   protected TransactionIsolationLevel level;
+
+  /**
+   * 自动提交标志位
+   */
   protected boolean autoCommit;
+
+  /**
+   * 是否跳过关闭时设置自动提交标志位（仅在不使用Connection.setAutoCommit()时使用），以避免与JDBC驱动程序的限制兼容。
+   */
   protected boolean skipSetAutoCommitOnClose;
 
   public JdbcTransaction(DataSource ds, TransactionIsolationLevel desiredLevel, boolean desiredAutoCommit) {
@@ -138,6 +156,11 @@ public class JdbcTransaction implements Transaction {
     }
   }
 
+  /**
+   * 打开连接并设置事务级别和自动提交
+   *
+   * @throws SQLException error
+   */
   protected void openConnection() throws SQLException {
     if (log.isDebugEnabled()) {
       log.debug("Opening JDBC Connection");

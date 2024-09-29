@@ -86,6 +86,9 @@ public class BlockingCache implements Cache {
     delegate.clear();
   }
 
+  /**
+   * 获取锁并等待（阻塞）直到得到它。如果在超时时间内没有获得锁，则抛出异常。
+   */
   private void acquireLock(Object key) {
     CountDownLatch newLatch = new CountDownLatch(1);
     while (true) {
@@ -109,6 +112,10 @@ public class BlockingCache implements Cache {
     }
   }
 
+  /**
+   * 释放与给定键关联的锁。如果不持有锁，则会抛出IllegalStateException异常。
+   * @param key 被检索的键值
+   */
   private void releaseLock(Object key) {
     CountDownLatch latch = locks.remove(key);
     if (latch == null) {

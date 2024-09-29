@@ -28,6 +28,10 @@ import org.apache.ibatis.cache.Cache;
 public class FifoCache implements Cache {
 
   private final Cache delegate;
+
+  /**
+   * 双端队列, double ended queue.
+   */
   private final Deque<Object> keyList;
   private int size;
 
@@ -74,6 +78,10 @@ public class FifoCache implements Cache {
     keyList.clear();
   }
 
+  /**
+   * 向队列末尾插入键，当队列大小超过size时移除最旧的键（队列头的元素），并且删除缓存最早的对象。
+   * @param key 新的键值对的键。
+   */
   private void cycleKeyList(Object key) {
     keyList.addLast(key);
     if (keyList.size() > size) {

@@ -24,6 +24,20 @@
     <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled" title="无池化相关类" textColor="151,255,37"/>
     <tree path="/src/main/java/org/apache/ibatis/datasource/pooled" title="池化相关类" textColor="151,255,37"/>
     <tree path="/src/main/java/org/apache/ibatis/datasource/jndi" title="JNDI 上下文的引用" textColor="151,255,37"/>
-    <tree path="/src/main/java/org/apache/ibatis/transaction" title="事务"/>
+    <tree path="/src/main/java/org/apache/ibatis/transaction" title="事务 -- 工厂模式" textColor="161,255,84"/>
+    <tree path="/src/main/java/org/apache/ibatis/transaction/jdbc" title="基于jdbc管理事务" textColor="161,255,84"/>
+    <tree path="/src/main/java/org/apache/ibatis/transaction/managed" title="基于容器管理的事务" textColor="161,255,84"/>
+    <tree path="/src/main/java/org/apache/ibatis/cache" title="缓存" textColor="11,255,228"/>
+    <tree path="/src/main/java/org/apache/ibatis/cache/decorators" title="装饰者模式" textColor="11,255,228"/>
+    <tree path="/src/main/java/org/apache/ibatis/cache/impl/PerpetualCache.java" title="无过期的cache" textColor="11,255,228"/>
+    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/BlockingCache.java" title="阻塞Cache -- CountDownLatch"
+          extension="" presentableText="" tooltipTitle="" icon=""  textColor="11,255,228" backgroundColor=""/>
+    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/FifoCache.java" title="先进先出Cache -- Deque"/>
+    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/LruCache.java" title="最少使用的淘汰机制 -- LinkedHashMap"
+          extension="" presentableText="" tooltipTitle="" icon=""  textColor="11,255,228" backgroundColor=""/>
+    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/ScheduledCache.java" title="定时清除" extension=""
+          presentableText="" tooltipTitle="" icon=""  textColor="11,255,228" backgroundColor=""/>
+    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/SynchronizedCache.java" textColor="11,255,228"
+          title="同步cache -- ReentrantLock"/>
 
 </trees>

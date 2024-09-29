@@ -84,6 +84,12 @@ public class SerializedCache implements Cache {
     return delegate.equals(obj);
   }
 
+  /**
+   * 序列化
+   *
+   * @param value 对象
+   * @return 字节流数组
+   */
   private byte[] serialize(Serializable value) {
     try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos)) {
@@ -95,6 +101,11 @@ public class SerializedCache implements Cache {
     }
   }
 
+  /**
+   * 反序列化
+   * @param value 字节流数组
+   * @return {@link Serializable}
+   */
   private Serializable deserialize(byte[] value) {
     SerialFilterChecker.check();
     Serializable result;
