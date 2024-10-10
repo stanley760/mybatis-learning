@@ -74,9 +74,18 @@ public class SqlSessionFactoryBuilder {
     return build(inputStream, null, properties);
   }
 
+  /**
+   * ⭐️⭐️⭐️万里长征第一步： 构建xml配置文件的SqlSessionFactory实例
+   *
+   * @param inputStream xml配置文件的inputStream流
+   * @param environment 环境变量
+   * @param properties 配置属性值
+   * @return SqlSessionFactory实例
+   */
   public SqlSessionFactory build(InputStream inputStream, String environment, Properties properties) {
     try {
       XMLConfigBuilder parser = new XMLConfigBuilder(inputStream, environment, properties);
+
       return build(parser.parse());
     } catch (Exception e) {
       throw ExceptionFactory.wrapException("Error building SqlSession.", e);
@@ -92,7 +101,13 @@ public class SqlSessionFactoryBuilder {
     }
   }
 
+  /**
+   * ⭐️⭐️⭐️万里长征第二步： 构建Configuration的SqlSessionFactory实例
+   * @param config Configuration对象
+   * @return SqlSessionFactory实例
+   */
   public SqlSessionFactory build(Configuration config) {
+    // 创建并返回DefaultSqlSessionFactory实例，它实现了SqlSessionFactory接口
     return new DefaultSqlSessionFactory(config);
   }
 

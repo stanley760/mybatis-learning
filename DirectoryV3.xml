@@ -48,5 +48,10 @@
           textColor="47,83,255"/>
     <tree path="/src/main/java/org/apache/ibatis/io/ResolverUtil.java"
           title="解析器工具类，用于获得指定目录符合条件的类们" textColor="197,55,255"/>
+    <tree path="/src/main/java/org/apache/ibatis/builder/xml/XMLConfigBuilder.java" title="解析mybatis-config.xml"/>
+    <tree path="/src/main/java/org/apache/ibatis/builder/xml" title="解析mybatis全局配置xml获取配置器" extension=""
+          presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
+    <tree path="/src/main/java/org/apache/ibatis/session/SqlSessionFactoryBuilder.java" title="sql会话工厂构建器"/>
+    <tree path="/src/main/java/org/apache/ibatis/session/SqlSession.java" title="类似于JDBC操作的connection对象"/>
 
 </trees>
