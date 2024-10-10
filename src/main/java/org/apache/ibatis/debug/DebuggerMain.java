@@ -24,16 +24,20 @@ public class DebuggerMain {
 
     public static void main(String[] args) throws IOException {
         String resource = "mybatis-config.xml";
-
-
-
+        log.info(">>>>>>>>>>>>>>>>>>>>>>>>>> loading mybatis-config.xml ");
+        //1.读取配置文件
         InputStream inputStream = Resources.getResourceAsStream(resource);
+        // 2. 构建会话工厂（SqlSessionFactory）
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        // 3. 打开会话（SqlSession）
         SqlSession sqlSession = sqlSessionFactory.openSession();
+        // 4. 获取接口的实现类（UserMapper）
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.getUserById(1L);
         log.info("id: {} name:{} age:{}", user.getId(), user.getUserName(), user.getAge());
+        // 5. 提交事务
         sqlSession.commit();
+        // 6. 关闭会话
         sqlSession.close();
     }
 }

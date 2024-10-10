@@ -39,5 +39,11 @@
           presentableText="" tooltipTitle="" icon=""  textColor="11,255,228" backgroundColor=""/>
     <tree path="/src/main/java/org/apache/ibatis/cache/decorators/SynchronizedCache.java" textColor="11,255,228"
           title="同步cache -- ReentrantLock"/>
+    <tree path="/src/main/java/org/apache/ibatis/type" title="类型"/>
+    <tree path="/src/main/java/org/apache/ibatis/binding" title="自定义的 Mapper 接口与映射配置文件关联"/>
+    <tree path="/src/main/java/org/apache/ibatis/binding/MapperProxyFactory.java" title="Mapper Proxy 工厂类"/>
+    <tree path="/src/main/java/org/apache/ibatis/binding/MapperRegistry.java" title="Mapper 注册表"/>
+    <tree path="/src/main/java/org/apache/ibatis/io/ResolverUtil.java"
+          title="解析器工具类，用于获得指定目录符合条件的类们"/>
 
 </trees>

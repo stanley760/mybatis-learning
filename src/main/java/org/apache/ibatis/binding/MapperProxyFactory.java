@@ -43,6 +43,11 @@ public class MapperProxyFactory<T> {
     return methodCache;
   }
 
+  /**
+   * 基于 JDK Proxy 实现的接口代理
+   * @param mapperProxy - 调用器的实例，用于转发接口方法调用到 SqlSession
+   * @return  Mapper 接口的新实例。这个实例是 JDK Proxy 的实现，将方法调用转发到 {@link MapperProxy} 实例。
+   */
   @SuppressWarnings("unchecked")
   protected T newInstance(MapperProxy<T> mapperProxy) {
     return (T) Proxy.newProxyInstance(mapperInterface.getClassLoader(), new Class[] { mapperInterface }, mapperProxy);

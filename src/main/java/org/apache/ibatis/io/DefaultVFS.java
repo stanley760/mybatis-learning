@@ -38,6 +38,7 @@ import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 
 /**
+ * virtual File System 虚拟文件系统默认实现类，应用于大多数应用服务器。
  * A default implementation of {@link VFS} that works for most application servers.
  *
  * @author Ben Gunter

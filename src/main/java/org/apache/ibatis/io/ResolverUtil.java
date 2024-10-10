@@ -63,6 +63,7 @@ public class ResolverUtil<T> {
   private static final Log log = LogFactory.getLog(ResolverUtil.class);
 
   /**
+   * 匹配判断接口
    * A simple interface that specifies how to test classes to determine if they are to be included in the results
    * produced by the ResolverUtil.
    */
@@ -81,6 +82,7 @@ public class ResolverUtil<T> {
   }
 
   /**
+   * IsA ，实现 Test 接口，判断是否为指定类
    * A Test that checks to see if each class is assignable to the provided class. Note that this test will match the
    * parent type itself if it is presented for matching.
    */
@@ -112,6 +114,7 @@ public class ResolverUtil<T> {
   }
 
   /**
+   * 判断是否有指定注解
    * A Test that checks to see if each class is annotated with a specific annotation. If it is, then the test returns
    * true, otherwise false.
    */
@@ -232,6 +235,7 @@ public class ResolverUtil<T> {
   }
 
   /**
+   * 获得指定包下，符合条件的类
    * Scans for classes starting at the package provided and descending into subpackages. Each class is offered up to the
    * Test as it is discovered, and if the Test returns true the class is retained. Accumulated classes can be fetched by
    * calling {@link #getClasses()}.
