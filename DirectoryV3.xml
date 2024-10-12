@@ -52,6 +52,7 @@
     <tree path="/src/main/java/org/apache/ibatis/builder/xml" title="解析mybatis全局配置xml获取配置器" extension=""
           presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
     <tree path="/src/main/java/org/apache/ibatis/session/SqlSessionFactoryBuilder.java" title="sql会话工厂构建器"/>
-    <tree path="/src/main/java/org/apache/ibatis/session/SqlSession.java" title="类似于JDBC操作的connection对象"/>
+    <tree path="/src/main/java/org/apache/ibatis/session/SqlSession.java" title="jdbc数据库相关操作" extension=""
+          presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
 
 </trees>

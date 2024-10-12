@@ -33,7 +33,7 @@ public interface SqlSession extends Closeable {
 
   /**
    * Retrieve a single row mapped from the statement key.
-   *
+   * 获取一个结果对象
    * @param <T>
    *          the returned object type
    * @param statement
@@ -59,7 +59,7 @@ public interface SqlSession extends Closeable {
 
   /**
    * Retrieve a list of mapped objects from the statement key.
-   *
+   * 查询一个结果集合
    * @param <E>
    *          the returned list element type
    * @param statement
@@ -102,7 +102,7 @@ public interface SqlSession extends Closeable {
   /**
    * The selectMap is a special case in that it is designed to convert a list of results into a Map based on one of the
    * properties in the resulting objects. Eg. Return a of Map[Integer,Author] for selectMap("selectAuthors","id")
-   *
+   * 查询一个map
    * @param <K>
    *          the returned Map keys type
    * @param <V>
@@ -158,7 +158,7 @@ public interface SqlSession extends Closeable {
 
   /**
    * A Cursor offers the same results as a List, except it fetches data lazily using an Iterator.
-   *
+   * 查询游标
    * @param <T>
    *          the returned cursor element type.
    * @param statement
