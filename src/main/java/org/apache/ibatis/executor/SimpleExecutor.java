@@ -32,6 +32,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.transaction.Transaction;
 
 /**
+ * 默认执行器 每次执行update或者select操作，都会创建一个Statement对象，执行结束后关闭Statement对象。
  * @author Clinton Begin
  */
 public class SimpleExecutor extends BaseExecutor {
@@ -45,10 +46,14 @@ public class SimpleExecutor extends BaseExecutor {
     Statement stmt = null;
     try {
       Configuration configuration = ms.getConfiguration();
+      // 1. 创建一个StatementHandler的实例来处理具体的SQL操作。
       StatementHandler handler = configuration.newStatementHandler(this, ms, parameter, RowBounds.DEFAULT, null, null);
+      // 2. 准备statement并设置参数。
       stmt = prepareStatement(handler, ms.getStatementLog());
+      // 3. 执行更新SQL并返回影响行数。
       return handler.update(stmt);
     } finally {
+      // 4. 关闭statement，释放资源。
       closeStatement(stmt);
     }
   }

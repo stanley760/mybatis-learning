@@ -725,9 +725,17 @@ public class Configuration {
     return newExecutor(transaction, defaultExecutorType);
   }
 
+  /**
+   * 创建一个excutor的实例
+   *
+   * @param transaction 事务
+   * @param executorType configuration中的executorType
+   * @return {@link Executor}
+   */
   public Executor newExecutor(Transaction transaction, ExecutorType executorType) {
     executorType = executorType == null ? defaultExecutorType : executorType;
     Executor executor;
+    // 不同的执行器类型创建对应的实例
     if (ExecutorType.BATCH == executorType) {
       executor = new BatchExecutor(this, transaction);
     } else if (ExecutorType.REUSE == executorType) {
@@ -735,6 +743,7 @@ public class Configuration {
     } else {
       executor = new SimpleExecutor(this, transaction);
     }
+    // 是否开启一级缓存，默认开启
     if (cacheEnabled) {
       executor = new CachingExecutor(executor);
     }

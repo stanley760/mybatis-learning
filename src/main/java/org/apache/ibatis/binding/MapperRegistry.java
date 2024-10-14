@@ -49,7 +49,8 @@ public class MapperRegistry {
   }
 
   /**
-   * 获得 Mapper Proxy 对象
+   *  ⭐️⭐️⭐️万里长征第四步:获得 Mapper Proxy 对象
+   *
    * @param type Mapper的接口类型的class对象
    * @param sqlSession SQL会话对象
    * @return Mapper Proxy 对象的实例
