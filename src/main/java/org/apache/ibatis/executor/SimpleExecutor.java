@@ -63,12 +63,17 @@ public class SimpleExecutor extends BaseExecutor {
       BoundSql boundSql) throws SQLException {
     Statement stmt = null;
     try {
+      // 1.获取Configuration
       Configuration configuration = ms.getConfiguration();
+      // 2. 创建一个StatementHandler的实例来处理具体的SQL操作。
       StatementHandler handler = configuration.newStatementHandler(wrapper, ms, parameter, rowBounds, resultHandler,
           boundSql);
+      // 3. 准备statement并设置参数。
       stmt = prepareStatement(handler, ms.getStatementLog());
+      // 4. 执行查询SQL并返回结果。
       return handler.query(stmt, resultHandler);
     } finally {
+      // 5. 关闭statement，释放资源。
       closeStatement(stmt);
     }
   }
@@ -91,8 +96,11 @@ public class SimpleExecutor extends BaseExecutor {
 
   private Statement prepareStatement(StatementHandler handler, Log statementLog) throws SQLException {
     Statement stmt;
+    // 1. 获取Connection对象
     Connection connection = getConnection(statementLog);
+    // 2. 创建Statement对象
     stmt = handler.prepare(connection, transaction.getTimeout());
+    // 3. 设置sql参数
     handler.parameterize(stmt);
     return stmt;
   }

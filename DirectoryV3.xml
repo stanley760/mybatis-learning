@@ -54,5 +54,14 @@
     <tree path="/src/main/java/org/apache/ibatis/session/SqlSessionFactoryBuilder.java" title="sql会话工厂构建器"/>
     <tree path="/src/main/java/org/apache/ibatis/session/SqlSession.java" title="jdbc数据库相关操作" extension=""
           presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
+    <tree path="/src/main/java/org/apache/ibatis/executor" title="执行器"/>
+    <tree path="/src/main/java/org/apache/ibatis/executor/SimpleExecutor.java" title="默认执行器"/>
+    <tree path="/src/main/java/org/apache/ibatis/executor/ReuseExecutor.java" title="可重用Statement对象执行器"/>
+    <tree path="/src/main/java/org/apache/ibatis/executor/BatchExecutor.java" title="批量执行器"/>
+    <tree path="/src/main/java/org/apache/ibatis/mapping/MappedStatement.java" title="对sql标签的信息描述"/>
+    <tree path="/src/main/java/org/apache/ibatis/scripting/xmltags/DynamicSqlSource.java" title="动态编译sql"
+          extension="" presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
+    <tree path="/src/main/java/org/apache/ibatis/scripting/defaults/RawSqlSource.java" title="静态编译sql" extension=""
+          presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
 
 </trees>

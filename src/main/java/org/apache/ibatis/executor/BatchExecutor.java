@@ -63,6 +63,7 @@ public class BatchExecutor extends BaseExecutor {
         final BoundSql boundSql = handler.getBoundSql();
         final String sql = boundSql.getSql();
         final Statement stmt;
+        // 1.初始化currentSql和currentStatement为null，直接else分支
         if (sql.equals(currentSql) && ms.equals(currentStatement)) {
             int last = statementList.size() - 1;
             stmt = statementList.get(last);
@@ -76,11 +77,14 @@ public class BatchExecutor extends BaseExecutor {
             stmt = handler.prepare(connection, transaction.getTimeout());
             // fix Issues 322
             handler.parameterize(stmt);
+            // 赋值给currentSql和currentStatement
             currentSql = sql;
             currentStatement = ms;
+            // 添加到statementList和batchResultList
             statementList.add(stmt);
             batchResultList.add(new BatchResult(ms, sql, parameterObject));
         }
+        //调用jdbc的addBatch（）方法，将sql语句添加到batch中
         handler.batch(stmt);
         return BATCH_UPDATE_RETURN_VALUE;
     }
@@ -117,10 +121,17 @@ public class BatchExecutor extends BaseExecutor {
         return cursor;
     }
 
+    /**
+     * 遍历statementList，执行executeBatch()方法，将sql语句添加到batch中，并返回更新记录数。
+     * @param isRollback
+     * @return
+     * @throws SQLException
+     */
     @Override
     public List<BatchResult> doFlushStatements(boolean isRollback) throws SQLException {
         try {
             List<BatchResult> results = new ArrayList<>();
+            // 1.当回滚事务则直接返回
             if (isRollback) {
                 return Collections.emptyList();
             }
@@ -129,6 +140,7 @@ public class BatchExecutor extends BaseExecutor {
                 applyTransactionTimeout(stmt);
                 BatchResult batchResult = batchResultList.get(i);
                 try {
+                    // 2. 执行sql
                     batchResult.setUpdateCounts(stmt.executeBatch());
                     MappedStatement ms = batchResult.getMappedStatement();
                     List<Object> parameterObjects = batchResult.getParameterObjects();
@@ -142,6 +154,7 @@ public class BatchExecutor extends BaseExecutor {
                         }
                     }
                     // Close statement to close cursor #1109
+                    // 3. 关闭statement
                     closeStatement(stmt);
                 } catch (BatchUpdateException e) {
                     StringBuilder message = new StringBuilder();
@@ -153,6 +166,7 @@ public class BatchExecutor extends BaseExecutor {
                     }
                     throw new BatchExecutorException(message.toString(), e, results, batchResult);
                 }
+                // 4. 将batchResult添加到results
                 results.add(batchResult);
             }
             return results;

@@ -30,6 +30,7 @@ import org.apache.ibatis.scripting.LanguageDriver;
 import org.apache.ibatis.session.Configuration;
 
 /**
+ * 用于第三方脚本集成
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */

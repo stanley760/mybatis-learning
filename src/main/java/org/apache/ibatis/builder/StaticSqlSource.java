@@ -23,6 +23,10 @@ import org.apache.ibatis.mapping.SqlSource;
 import org.apache.ibatis.session.Configuration;
 
 /**
+ * StaticSqlSource的作用就是成为RawSqlSource编译后的载体，
+ * 用来保存RawSqlSource所生成的StaticSqlSource，
+ * 那么下次再调用RawSqlSource时就可以直接通过已经编译好的SQL语言生成BoundSQL；
+ * 如果没有RawSqlSource的话也就不用存在StaticSqlSource
  * @author Clinton Begin
  */
 public class StaticSqlSource implements SqlSource {

@@ -91,7 +91,10 @@ public class ReuseExecutor extends BaseExecutor {
     }
 
     /**
-     * 获取Statement对象
+     * ⭐️⭐️⭐️ 获取Statement对象
+     * 主要功能：
+     * 如果缓存命中，直接从缓存中获取Statement对象，
+     * 否则构建新的Statement对象，并将statement放入缓存中
      *
      * @param handler      处理Statement的对象
      * @param statementLog jdbc日志

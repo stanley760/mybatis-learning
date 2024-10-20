@@ -24,6 +24,7 @@ import org.apache.ibatis.reflection.property.PropertyTokenizer;
 import org.apache.ibatis.session.Configuration;
 
 /**
+ * 对解析后的sql描述，包含了对动态标签的解析， 并且将#{}解析为占位符?。
  * An actual SQL String got from an {@link SqlSource} after having processed any dynamic content. The SQL may have SQL
  * placeholders "?" and a list (ordered) of a parameter mappings with the additional information for each parameter (at
  * least the property name of the input object to read the value from).
@@ -33,11 +34,15 @@ import org.apache.ibatis.session.Configuration;
  * @author Clinton Begin
  */
 public class BoundSql {
-
+  // mybatis将#{}和${}解析为?后的sql
   private final String sql;
+  // 参数映射关系
   private final List<ParameterMapping> parameterMappings;
+  // 参数对象
   private final Object parameterObject;
+  // 其他参数
   private final Map<String, Object> additionalParameters;
+  // 元数据参数
   private final MetaObject metaParameters;
 
   public BoundSql(Configuration configuration, String sql, List<ParameterMapping> parameterMappings,
