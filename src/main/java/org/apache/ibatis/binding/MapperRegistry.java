@@ -50,6 +50,10 @@ public class MapperRegistry {
 
   /**
    *  ⭐️⭐️⭐️万里长征第四步:获得 Mapper Proxy 对象
+   * <p>
+   * 从knowMappers(Map<Class<?>, MapperProxyFactory<?>> knowMappers = new HashMap<>())缓存中获取代理工厂MapperProxyFactory
+   *
+   * </p>
    *
    * @param type Mapper的接口类型的class对象
    * @param sqlSession SQL会话对象
@@ -58,7 +62,7 @@ public class MapperRegistry {
    */
   @SuppressWarnings("unchecked")
   public <T> T getMapper(Class<T> type, SqlSession sqlSession) {
-    // 1.获得 MapperProxyFactory 对象
+    // 1.获得 MapperProxyFactory 对象(问题：knowMappers 在那里初始化的？)
     final MapperProxyFactory<T> mapperProxyFactory = (MapperProxyFactory<T>) knownMappers.get(type);
     // 2.不存在，则抛出 BindingException 异常
     if (mapperProxyFactory == null) {

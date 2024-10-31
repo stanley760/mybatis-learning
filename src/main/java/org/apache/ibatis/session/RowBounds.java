@@ -20,8 +20,9 @@ package org.apache.ibatis.session;
  * @author Clinton Begin
  */
 public class RowBounds {
-
+  // 行偏移量
   public static final int NO_ROW_OFFSET = 0;
+  // 行最大限制数为integer最大值
   public static final int NO_ROW_LIMIT = Integer.MAX_VALUE;
   public static final RowBounds DEFAULT = new RowBounds();
 

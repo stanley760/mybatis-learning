@@ -93,8 +93,13 @@ public class XMLMapperBuilder extends BaseBuilder {
     this.resource = resource;
   }
 
+  /**
+   * 解析内容
+   */
   public void parse() {
+    // 判断是否已经加载过该资源
     if (!configuration.isResourceLoaded(resource)) {
+      // 传入根标签解析内容
       configurationElement(parser.evalNode("/mapper"));
       configuration.addLoadedResource(resource);
       bindMapperForNamespace();
@@ -108,6 +113,12 @@ public class XMLMapperBuilder extends BaseBuilder {
     return sqlFragments.get(refid);
   }
 
+  /**
+   * 对mapper文件中标签解析，使用builderAssistant对象临时保存解析过程的数据，
+   * 最终保存到configuration中
+   *
+   * @param context xml节点
+   */
   private void configurationElement(XNode context) {
     try {
       String namespace = context.getStringAttribute("namespace");

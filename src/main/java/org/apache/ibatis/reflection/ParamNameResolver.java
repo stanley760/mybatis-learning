@@ -127,10 +127,13 @@ public class ParamNameResolver {
    * @return the named params
    */
   public Object getNamedParams(Object[] args) {
+    // 这里的names 实际为对象ParamNameResolver初始化的SortedMap<Integer, String>，
+    // 即为sql传入的参数
     final int paramCount = names.size();
     if (args == null || paramCount == 0) {
       return null;
     }
+    //只有一个参数的方法时，eg: User getUserById(Long id);
     if (!hasParamAnnotation && paramCount == 1) {
       Object value = args[names.firstKey()];
       return wrapToMapIfCollection(value, useActualParamName ? names.get(names.firstKey()) : null);

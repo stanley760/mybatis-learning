@@ -132,7 +132,9 @@ public abstract class BaseExecutor implements Executor {
   @Override
   public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler)
       throws SQLException {
-    // 从MappedStatement 中获取BoundSql
+    // 将parameterObject传入，从MappedStatement中获取BoundSql
+    // 实际从SqlSource -> RawSqlSource -> StaticSqlSource.new BoundSql(...),
+    // 就是将paramterMappings， paramterObject，metaParamters属性赋值
     BoundSql boundSql = ms.getBoundSql(parameter);
     CacheKey key = createCacheKey(ms, parameter, rowBounds, boundSql);
     return query(ms, parameter, rowBounds, resultHandler, key, boundSql);
@@ -146,6 +148,7 @@ public abstract class BaseExecutor implements Executor {
     if (closed) {
       throw new ExecutorException("Executor was closed.");
     }
+    // queryStack为0且配置flushCache，则清除一级缓存localCache
     if (queryStack == 0 && ms.isFlushCacheRequired()) {
       clearLocalCache();
     }
@@ -153,9 +156,11 @@ public abstract class BaseExecutor implements Executor {
     try {
       queryStack++;
       list = resultHandler == null ? (List<E>) localCache.getObject(key) : null;
+      // 从缓存得到结果集不为空，则走不走数据库查询数据
       if (list != null) {
         handleLocallyCachedOutputParameters(ms, key, parameter, boundSql);
       } else {
+        // 结果集在缓存中不存在，查询数据库
         list = queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSql);
       }
     } finally {
@@ -197,6 +202,7 @@ public abstract class BaseExecutor implements Executor {
 
   @Override
   public CacheKey createCacheKey(MappedStatement ms, Object parameterObject, RowBounds rowBounds, BoundSql boundSql) {
+    // 校验sql executor是否已经关闭
     if (closed) {
       throw new ExecutorException("Executor was closed.");
     }
@@ -205,6 +211,7 @@ public abstract class BaseExecutor implements Executor {
     cacheKey.update(rowBounds.getOffset());
     cacheKey.update(rowBounds.getLimit());
     cacheKey.update(boundSql.getSql());
+
     List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
     TypeHandlerRegistry typeHandlerRegistry = ms.getConfiguration().getTypeHandlerRegistry();
     // mimic DefaultParameterHandler logic
@@ -334,6 +341,7 @@ public abstract class BaseExecutor implements Executor {
     List<E> list;
     localCache.putObject(key, EXECUTION_PLACEHOLDER);
     try {
+      // 真正的查询方法
       list = doQuery(ms, parameter, rowBounds, resultHandler, boundSql);
     } finally {
       localCache.removeObject(key);

@@ -45,8 +45,9 @@ import java.util.Optional;
  * @author Kazuki Shimizu
  */
 public class MapperMethod {
-
+    // 包含 name 和 SqlCommandType(sql的增删改查)
     private final SqlCommand command;
+    // 方法签名
     private final MethodSignature method;
 
     public MapperMethod(Class<?> mapperInterface, Method method, Configuration config) {
@@ -219,11 +220,15 @@ public class MapperMethod {
     public static class SqlCommand {
 
         private final String name;
+        // sql操作类型的枚举
         private final SqlCommandType type;
 
         public SqlCommand(Configuration configuration, Class<?> mapperInterface, Method method) {
+            // 获取方法名称
             final String methodName = method.getName();
+            // 方法所声明的类名
             final Class<?> declaringClass = method.getDeclaringClass();
+
             MappedStatement ms = resolveMappedStatement(mapperInterface, methodName, declaringClass, configuration);
             if (ms == null) {
                 if (method.getAnnotation(Flush.class) == null) {
@@ -249,7 +254,9 @@ public class MapperMethod {
         }
 
         private MappedStatement resolveMappedStatement(Class<?> mapperInterface, String methodName, Class<?> declaringClass, Configuration configuration) {
+            // 获取mapper的全限定类名+方法名为statementId
             String statementId = mapperInterface.getName() + "." + methodName;
+            // 如何configuration对象中包含该statementId则直接返回configuration中的MapperStatement对象
             if (configuration.hasStatement(statementId)) {
                 return configuration.getMappedStatement(statementId);
             }

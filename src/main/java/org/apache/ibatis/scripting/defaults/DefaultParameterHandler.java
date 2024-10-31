@@ -61,12 +61,26 @@ public class DefaultParameterHandler implements ParameterHandler {
   @Override
   public void setParameters(PreparedStatement ps) {
     ErrorContext.instance().activity("setting parameters").object(mappedStatement.getParameterMap().getId());
+    // 获取sql的传入参数映射列表，内部属性如下
+    // ParameterMapping{
+    //  property='id',
+    //  mode=IN,
+    //  javaType=class java.lang.Long,
+    //  jdbcType=null,
+    //  numericScale=null,
+    //  resultMapId='null',
+    //  jdbcTypeName='null',
+    //  expression='null'
+    //}
     List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
+    // parameterMapping不为空
     if (parameterMappings != null) {
       MetaObject metaObject = null;
       for (int i = 0; i < parameterMappings.size(); i++) {
         ParameterMapping parameterMapping = parameterMappings.get(i);
+        // parameterMapping.getMode() = IN
         if (parameterMapping.getMode() != ParameterMode.OUT) {
+          // 入参的值
           Object value;
           String propertyName = parameterMapping.getProperty();
           if (boundSql.hasAdditionalParameter(propertyName)) { // issue #448 ask first for additional params
@@ -81,12 +95,14 @@ public class DefaultParameterHandler implements ParameterHandler {
             }
             value = metaObject.getValue(propertyName);
           }
+          // 获取入参的类型处理器
           TypeHandler typeHandler = parameterMapping.getTypeHandler();
           JdbcType jdbcType = parameterMapping.getJdbcType();
           if (value == null && jdbcType == null) {
             jdbcType = configuration.getJdbcTypeForNull();
           }
           try {
+            // 对预处理语句进行入参赋值
             typeHandler.setParameter(ps, i + 1, value, jdbcType);
           } catch (TypeException | SQLException e) {
             throw new TypeException("Could not set parameters for mapping: " + parameterMapping + ". Cause: " + e, e);

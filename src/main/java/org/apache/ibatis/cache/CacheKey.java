@@ -71,6 +71,14 @@ public class CacheKey implements Cloneable, Serializable {
     return updateList.size();
   }
 
+  /**
+   * 目的减少hash冲突
+   *
+   * 根据传入的obj计算基础的hash值，count累加，将基础的hash值累加到校验和，
+   * 再将基础的hash值乘上count，结合基础的hash值，hashcode，multiplier计算新的hash值，
+   * 最后添加到updateList中
+   * @param object 传入值
+   */
   public void update(Object object) {
     int baseHashCode = object == null ? 1 : ArrayUtil.hashCode(object);
 

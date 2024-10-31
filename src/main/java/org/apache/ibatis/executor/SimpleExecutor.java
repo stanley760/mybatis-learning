@@ -63,12 +63,12 @@ public class SimpleExecutor extends BaseExecutor {
       BoundSql boundSql) throws SQLException {
     Statement stmt = null;
     try {
-      // 1.获取Configuration
+      // 1.从mapperStatement中获取Configuration
       Configuration configuration = ms.getConfiguration();
       // 2. 创建一个StatementHandler的实例来处理具体的SQL操作。
       StatementHandler handler = configuration.newStatementHandler(wrapper, ms, parameter, rowBounds, resultHandler,
           boundSql);
-      // 3. 准备statement并设置参数。
+      // 3. 获取statementHandler，传入prepareStatement方法调用。
       stmt = prepareStatement(handler, ms.getStatementLog());
       // 4. 执行查询SQL并返回结果。
       return handler.query(stmt, resultHandler);
