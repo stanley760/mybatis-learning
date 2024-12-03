@@ -114,21 +114,34 @@ public class XMLConfigBuilder extends BaseBuilder {
     private void parseConfiguration(XNode root) {
         try {
             // issue #117 read properties first
-            // 解析properties节点
+            // 解析<properties>节点的配置，并赋值到Properties对象中，并设置给Configuration.
             propertiesElement(root.evalNode("properties"));
+            // 解析<settings>节点配置
             Properties settings = settingsAsProperties(root.evalNode("settings"));
+            // 对settings中的vfsImp属性进行二次处理，生成实例对象，并赋值Configuration的vfsImpl属性
             loadCustomVfsImpl(settings);
+            // 配置自定义的logImpl对象，并赋值Configuration的logImpl属性
             loadCustomLogImpl(settings);
+            // 配置typeAliases对象，并赋值Configuration的typeAliasRegistry属性
             typeAliasesElement(root.evalNode("typeAliases"));
+            // 解析<plugins>节点配置
             pluginsElement(root.evalNode("plugins"));
+            // 配置objectFactory对象，并赋值Configuration的objectFactory属性
             objectFactoryElement(root.evalNode("objectFactory"));
+            // 配置objectWrapperFactory对象，并赋值Configuration的objectWrapperFactory属性
             objectWrapperFactoryElement(root.evalNode("objectWrapperFactory"));
+            // 配置reflectorFactory对象，并赋值Configuration的reflectorFactory属性
             reflectorFactoryElement(root.evalNode("reflectorFactory"));
+            // 将settings属性进行解析并赋值给Configuration对象
             settingsElement(settings);
             // read it after objectFactory and objectWrapperFactory issue #631
+            // 解析<environment>节点
             environmentsElement(root.evalNode("environments"));
+            // 解析<databaseIdProvider>节点
             databaseIdProviderElement(root.evalNode("databaseIdProvider"));
+            // 解析typeHandlers
             typeHandlersElement(root.evalNode("typeHandlers"));
+            // 解析mapper标签
             mappersElement(root.evalNode("mappers"));
         } catch (Exception e) {
             throw new BuilderException("Error parsing SQL Mapper Configuration. Cause: " + e, e);

@@ -40,6 +40,7 @@ public class DefaultSqlSessionFactory implements SqlSessionFactory {
 
     @Override
     public SqlSession openSession() {
+        // 从dataSource中开启会话
         return openSessionFromDataSource(configuration.getDefaultExecutorType(), null, false);
     }
 
@@ -139,6 +140,11 @@ public class DefaultSqlSessionFactory implements SqlSessionFactory {
         }
     }
 
+    /**
+     * environment标签使用jdbc事务管理器，因此返回JdbcTransactionFactory
+     * @param environment environment对象
+     * @return JdbcTransactionFactory事务工厂对象
+     */
     private TransactionFactory getTransactionFactoryFromEnvironment(Environment environment) {
         if (environment == null || environment.getTransactionFactory() == null) {
             return new ManagedTransactionFactory();
