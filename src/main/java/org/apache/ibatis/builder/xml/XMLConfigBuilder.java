@@ -141,7 +141,7 @@ public class XMLConfigBuilder extends BaseBuilder {
             databaseIdProviderElement(root.evalNode("databaseIdProvider"));
             // 解析typeHandlers
             typeHandlersElement(root.evalNode("typeHandlers"));
-            // 解析mapper标签
+            // 解析mapper标签，并初始化knowMappers
             mappersElement(root.evalNode("mappers"));
         } catch (Exception e) {
             throw new BuilderException("Error parsing SQL Mapper Configuration. Cause: " + e, e);
@@ -422,6 +422,8 @@ public class XMLConfigBuilder extends BaseBuilder {
                 String url = child.getStringAttribute("url");
                 String mapperClass = child.getStringAttribute("class");
                 if (resource != null && url == null && mapperClass == null) {
+                    // 指定resource属性，加载mapper文件路径，获取到输入流，
+                    // 创建XMLMapperBuilder(包含对mapper.xml解析后的document对象)，调用parse方法进行解析。
                     ErrorContext.instance().resource(resource);
                     try (InputStream inputStream = Resources.getResourceAsStream(resource)) {
                         XMLMapperBuilder mapperParser = new XMLMapperBuilder(inputStream, configuration, resource,
@@ -429,6 +431,7 @@ public class XMLConfigBuilder extends BaseBuilder {
                         mapperParser.parse();
                     }
                 } else if (resource == null && url != null && mapperClass == null) {
+                    //
                     ErrorContext.instance().resource(url);
                     try (InputStream inputStream = Resources.getUrlAsStream(url)) {
                         XMLMapperBuilder mapperParser = new XMLMapperBuilder(inputStream, configuration, url,
@@ -437,6 +440,7 @@ public class XMLConfigBuilder extends BaseBuilder {
                     }
                 } else if (resource == null && url == null && mapperClass != null) {
                     Class<?> mapperInterface = Resources.classForName(mapperClass);
+                    // 🏁添加到MapperRegistry中的knowMappers
                     configuration.addMapper(mapperInterface);
                 } else {
                     throw new BuilderException(
