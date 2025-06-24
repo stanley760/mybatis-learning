@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?> 
  <trees>
-     <tree path="/src/main/java/org/apache/ibatis/parsing" title="解析处理配置文件和动态SQL的占位符"
+     <tree path="/mybatis-code/src/main/java/org/apache/ibatis/parsing" title="解析处理配置文件和动态SQL的占位符"
            extension="" presentableText="" tooltipTitle="" icon="" textColor="255,105,109"
            backgroundColor=""/>
-     <tree path="/src/main/java/org/apache/ibatis/parsing/XPathParser.java" title="xpath解析器"
+     <tree path="/mybatis-code/src/main/java/org/apache/ibatis/parsing/XPathParser.java" title="xpath解析器"
            textColor="255,105,109"/>
-     <tree path="/src/main/java/org/apache/ibatis/parsing/GenericTokenParser.java" textColor="255,105,109"
+     <tree path="/mybatis-code/src/main/java/org/apache/ibatis/parsing/GenericTokenParser.java" textColor="255,105,109"
            title="⭐️通用标记符解析器，处理#{}和${}参数" extension="" presentableText="" tooltipTitle="" icon=""
            backgroundColor=""/>
-     <tree path="/src/main/java/org/apache/ibatis/debug/entity" title="实体-用户类" textColor="255,12,30"/>
-     <tree path="/src/main/java/org/apache/ibatis/debug" title="debug 调试入口" textColor="255,12,30"/>
-     <tree path="/src/main/java/org/apache/ibatis/debug/DebuggerMain.java" title="debug运行class" textColor="255,12,30"/>
-     <tree path="/src/main/java/org/apache/ibatis/debug/handler" title="自定义类型处理器" textColor="255,12,30"/>
-     <tree path="/src/main/java/org/apache/ibatis/parsing/PropertyParser.java" title="动态属性解析器" textColor="255,105,109"/>
-    <tree path="/src/main/java/org/apache/ibatis/parsing/TokenHandler.java" title="token 处理器" textColor="255,105,109"/>
+     <tree path="/mybatis-code/src/main/java/org/apache/ibatis/debug/entity" title="实体-用户类" textColor="255,12,30"/>
+     <tree path="/mybatis-code/src/main/java/org/apache/ibatis/debug" title="debug 调试入口" textColor="255,12,30"/>
+     <tree path="/mybatis-code/src/main/java/org/apache/ibatis/debug/DebuggerMain.java" title="debug运行class" textColor="255,12,30"/>
+     <tree path="/mybatis-code/src/main/java/org/apache/ibatis/debug/handler" title="自定义类型处理器" textColor="255,12,30"/>
+     <tree path="/mybatis-code/src/main/java/org/apache/ibatis/parsing/PropertyParser.java" title="动态属性解析器" textColor="255,105,109"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/parsing/TokenHandler.java" title="token 处理器" textColor="255,105,109"/>
 
-    <tree path="/src/main/java/org/apache/ibatis/reflection" title="反射" textColor="255,150,72"/>
-    <tree path="/src/main/java/org/apache/ibatis/reflection/Reflector.java" title="反射器" textColor="120,255,161"/>
-    <tree path="/src/main/java/org/apache/ibatis/exceptions" title="异常" textColor="82,129,255"/>
-    <tree path="/src/main/java/org/apache/ibatis/datasource" title="数据源" textColor="151,255,37"/>
-    <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled/UnpooledDataSourceFactory.java" title="无池化数据源工厂" textColor="151,255,37"/>
-    <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled/UnpooledDataSource.java" title="无池化数据源" textColor="151,255,37"/>
-    <tree path="/src/main/java/org/apache/ibatis/datasource/unpooled" title="无池化相关类" textColor="151,255,37"/>
-    <tree path="/src/main/java/org/apache/ibatis/datasource/pooled" title="池化相关类" textColor="151,255,37"/>
-    <tree path="/src/main/java/org/apache/ibatis/datasource/jndi" title="JNDI 上下文的引用" textColor="151,255,37"/>
-    <tree path="/src/main/java/org/apache/ibatis/transaction" title="事务 -- 工厂模式" textColor="161,255,84"/>
-    <tree path="/src/main/java/org/apache/ibatis/transaction/jdbc" title="基于jdbc管理事务" textColor="161,255,84"/>
-    <tree path="/src/main/java/org/apache/ibatis/transaction/managed" title="基于容器管理的事务" textColor="161,255,84"/>
-    <tree path="/src/main/java/org/apache/ibatis/cache" title="缓存" textColor="11,255,228"/>
-    <tree path="/src/main/java/org/apache/ibatis/cache/decorators" title="装饰者模式" textColor="11,255,228"/>
-    <tree path="/src/main/java/org/apache/ibatis/cache/impl/PerpetualCache.java" title="无过期的cache" textColor="11,255,228"/>
-    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/BlockingCache.java" title="阻塞Cache -- CountDownLatch"
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/reflection" title="反射" textColor="255,150,72"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/reflection/Reflector.java" title="反射器" textColor="120,255,161"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/exceptions" title="异常" textColor="82,129,255"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/datasource" title="数据源" textColor="151,255,37"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/datasource/unpooled/UnpooledDataSourceFactory.java" title="无池化数据源工厂" textColor="151,255,37"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/datasource/unpooled/UnpooledDataSource.java" title="无池化数据源" textColor="151,255,37"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/datasource/unpooled" title="无池化相关类" textColor="151,255,37"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/datasource/pooled" title="池化相关类" textColor="151,255,37"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/datasource/jndi" title="JNDI 上下文的引用" textColor="151,255,37"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/transaction" title="事务 -- 工厂模式" textColor="161,255,84"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/transaction/jdbc" title="基于jdbc管理事务" textColor="161,255,84"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/transaction/managed" title="基于容器管理的事务" textColor="161,255,84"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/cache" title="缓存" textColor="11,255,228"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/cache/decorators" title="装饰者模式" textColor="11,255,228"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/cache/impl/PerpetualCache.java" title="无过期的cache" textColor="11,255,228"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/cache/decorators/BlockingCache.java" title="阻塞Cache -- CountDownLatch"
           extension="" presentableText="" tooltipTitle="" icon=""  textColor="11,255,228" backgroundColor=""/>
-    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/FifoCache.java" title="先进先出Cache -- Deque"/>
-    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/LruCache.java" title="最少使用的淘汰机制 -- LinkedHashMap"
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/cache/decorators/FifoCache.java" title="先进先出Cache -- Deque"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/cache/decorators/LruCache.java" title="最少使用的淘汰机制 -- LinkedHashMap"
           extension="" presentableText="" tooltipTitle="" icon=""  textColor="11,255,228" backgroundColor=""/>
-    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/ScheduledCache.java" title="定时清除" extension=""
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/cache/decorators/ScheduledCache.java" title="定时清除" extension=""
           presentableText="" tooltipTitle="" icon=""  textColor="11,255,228" backgroundColor=""/>
-    <tree path="/src/main/java/org/apache/ibatis/cache/decorators/SynchronizedCache.java" textColor="11,255,228"
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/cache/decorators/SynchronizedCache.java" textColor="11,255,228"
           title="同步cache -- ReentrantLock"/>
-    <tree path="/src/main/java/org/apache/ibatis/type" title="类型" textColor="120,255,161"/>
-    <tree path="/src/main/java/org/apache/ibatis/binding" title="自定义的 Mapper 接口与映射配置文件关联"
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/type" title="类型" textColor="120,255,161"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/binding" title="自定义的 Mapper 接口与映射配置文件关联"
           textColor="47,83,255"/>
-    <tree path="/src/main/java/org/apache/ibatis/binding/MapperProxyFactory.java" title="Mapper Proxy 工厂类"
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/binding/MapperProxyFactory.java" title="Mapper Proxy 工厂类"
           textColor="47,83,255"/>
-    <tree path="/src/main/java/org/apache/ibatis/binding/MapperRegistry.java" title="Mapper 注册表"
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/binding/MapperRegistry.java" title="Mapper 注册表"
           textColor="47,83,255"/>
-    <tree path="/src/main/java/org/apache/ibatis/io/ResolverUtil.java"
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/io/ResolverUtil.java"
           title="解析器工具类，用于获得指定目录符合条件的类们" textColor="197,55,255"/>
-    <tree path="/src/main/java/org/apache/ibatis/builder/xml/XMLConfigBuilder.java" title="解析mybatis-config.xml"/>
-    <tree path="/src/main/java/org/apache/ibatis/builder/xml" title="解析mybatis全局配置xml获取配置器" extension=""
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/builder/xml/XMLConfigBuilder.java" title="解析mybatis-config.xml"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/builder/xml" title="解析mybatis全局配置xml获取配置器" extension=""
           presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
-    <tree path="/src/main/java/org/apache/ibatis/session/SqlSessionFactoryBuilder.java" title="sql会话工厂构建器"/>
-    <tree path="/src/main/java/org/apache/ibatis/session/SqlSession.java" title="jdbc数据库相关操作" extension=""
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/session/SqlSessionFactoryBuilder.java" title="sql会话工厂构建器"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/session/SqlSession.java" title="jdbc数据库相关操作" extension=""
           presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
-    <tree path="/src/main/java/org/apache/ibatis/executor" title="执行器"/>
-    <tree path="/src/main/java/org/apache/ibatis/executor/SimpleExecutor.java" title="默认执行器"/>
-    <tree path="/src/main/java/org/apache/ibatis/executor/ReuseExecutor.java" title="可重用Statement对象执行器"/>
-    <tree path="/src/main/java/org/apache/ibatis/executor/BatchExecutor.java" title="批量执行器"/>
-    <tree path="/src/main/java/org/apache/ibatis/mapping/MappedStatement.java" title="对sql标签的信息描述"/>
-    <tree path="/src/main/java/org/apache/ibatis/scripting/xmltags/DynamicSqlSource.java" title="动态编译sql"
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/executor" title="执行器"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/executor/SimpleExecutor.java" title="默认执行器"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/executor/ReuseExecutor.java" title="可重用Statement对象执行器"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/executor/BatchExecutor.java" title="批量执行器"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/mapping/MappedStatement.java" title="对sql标签的信息描述"/>
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/scripting/xmltags/DynamicSqlSource.java" title="动态编译sql"
           extension="" presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
-    <tree path="/src/main/java/org/apache/ibatis/scripting/defaults/RawSqlSource.java" title="静态编译sql" extension=""
+    <tree path="/mybatis-code/src/main/java/org/apache/ibatis/scripting/defaults/RawSqlSource.java" title="静态编译sql" extension=""
           presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
 
 </trees>

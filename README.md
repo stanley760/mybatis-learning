@@ -13,7 +13,7 @@ Mybatis components:
 2. SqlSessionFactory: create SqlSession object.
 3. SqlSession: execute CRUD operation.
 4. Sql Mapper: the interface which define CRUD operation.
-![img.png](img.png)
+![img.png](mybatis-code/img.png)
 
 
 #### DEBUG:
