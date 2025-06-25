@@ -1,17 +1,18 @@
 package org.apache.ibatis.copyright;
 
-import org.apache.ibatis.copyright.binding.MapperProxyFactory;
 import org.apache.ibatis.copyright.binding.MapperRegistry;
 import org.apache.ibatis.copyright.dao.IUserDao;
-import org.apache.ibatis.copyright.session.DefaultSqlSessionFactory;
+import org.apache.ibatis.copyright.io.Resources;
 import org.apache.ibatis.copyright.session.SqlSession;
 import org.apache.ibatis.copyright.session.SqlSessionFactory;
+import org.apache.ibatis.copyright.session.SqlSessionFactoryBuilder;
+import org.apache.ibatis.copyright.session.defaults.DefaultSqlSessionFactory;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Reader;
 import java.lang.reflect.Proxy;
-import java.util.Map;
 
 /**
  * @author stanley
@@ -26,18 +27,11 @@ public class ApiTest {
 
 
     @Test
-    public void test_proxy_factory() {
+    public void test_proxy_factory() throws Exception {
 
-//        MapperProxyFactory<IUserDao> factory = new MapperProxyFactory<>(IUserDao.class);
-//        Map<String, String> sqlSession = Map.of("org.apache.ibatis.copyright.dao.IUserDao.queryUserInfoById",
-//                "simulate the result from database, it's a mapper file that query the data from its identify.");
-//
-//        IUserDao userDao = factory.newInstance(sqlSession);
-        MapperRegistry registry = new MapperRegistry();
-        registry.addMapper("org.apache.ibatis.copyright.dao");
-
-        SqlSessionFactory factory = new DefaultSqlSessionFactory(registry);
-        SqlSession sqlSession = factory.openSession();
+        Reader reader = Resources.getResourceAsReader("mybatis-config-datasource.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
 
         IUserDao userDao = sqlSession.getMapper(IUserDao.class);
 

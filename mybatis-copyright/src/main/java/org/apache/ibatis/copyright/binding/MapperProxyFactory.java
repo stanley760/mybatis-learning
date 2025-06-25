@@ -3,7 +3,6 @@ package org.apache.ibatis.copyright.binding;
 import org.apache.ibatis.copyright.session.SqlSession;
 
 import java.lang.reflect.Proxy;
-import java.util.Map;
 
 /**
  * @author ywb
@@ -20,7 +19,7 @@ public class MapperProxyFactory<T> {
     }
 
     public T newInstance(SqlSession sqlSession) {
-        final MapperProxy<T> mapperProxy = new MapperProxy<>(sqlSession, mapperInterface);
+        final MapperProxy<T> mapperProxy = new MapperProxy<>(sqlSession, mapperInterface, null);
         return (T) Proxy.newProxyInstance(mapperInterface.getClassLoader(), new Class[]{mapperInterface}, mapperProxy);
     }
 }

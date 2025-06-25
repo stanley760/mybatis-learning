@@ -1,6 +1,7 @@
 package org.apache.ibatis.copyright.binding;
 
 import cn.hutool.core.lang.ClassScanner;
+import org.apache.ibatis.copyright.session.Configuration;
 import org.apache.ibatis.copyright.session.SqlSession;
 
 import java.util.HashMap;
@@ -14,6 +15,12 @@ import java.util.Set;
  * @version: 1.0
  */
 public class MapperRegistry {
+
+    private Configuration configuration;
+
+    public MapperRegistry(Configuration configuration) {
+        this.configuration = configuration;
+    }
 
     private final Map<Class<?>, MapperProxyFactory<?>> knownMappers = new HashMap<>();
 
@@ -45,7 +52,7 @@ public class MapperRegistry {
     }
 
 
-    private <T> boolean hasMapper(Class<T> type) {
+    public <T> boolean hasMapper(Class<T> type) {
         return knownMappers.containsKey(type);
     }
 }
