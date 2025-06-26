@@ -26,7 +26,7 @@ public class MapperMethod {
         Object result = null;
         switch (command.getType()) {
             case SELECT:
-                result = sqlSession.selectOne("select", args);
+                result = sqlSession.selectOne(command.getName(), args);
                 break;
             case INSERT:
                 break;
