@@ -1,5 +1,7 @@
 package org.apache.ibatis.copyright.dao;
 
+import org.apache.ibatis.copyright.entity.User;
+
 /**
  * @author stanley
  * @description:
@@ -8,5 +10,5 @@ package org.apache.ibatis.copyright.dao;
  */
 public interface IUserDao {
 
-    String queryUserInfoById(Long uId);
+    User queryUserInfoById(Integer id);
 }

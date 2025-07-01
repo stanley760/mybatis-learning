@@ -1,7 +1,9 @@
 package org.apache.ibatis.copyright;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import org.apache.ibatis.copyright.binding.MapperRegistry;
 import org.apache.ibatis.copyright.dao.IUserDao;
+import org.apache.ibatis.copyright.entity.User;
 import org.apache.ibatis.copyright.io.Resources;
 import org.apache.ibatis.copyright.session.SqlSession;
 import org.apache.ibatis.copyright.session.SqlSessionFactory;
@@ -35,21 +37,7 @@ public class ApiTest {
 
         IUserDao userDao = sqlSession.getMapper(IUserDao.class);
 
-        String result = userDao.queryUserInfoById(1L);
+        User result = userDao.queryUserInfoById(1);
         logger.info("test_proxy_factory 测试结果：{}", result);
-    }
-
-
-    @Test
-    public void test_proxy_instance(){
-        IUserDao userDao = (IUserDao) Proxy.newProxyInstance(
-                Thread.currentThread().getContextClassLoader(),
-                new Class[]{IUserDao.class},
-                ((proxy, method, args) ->
-                        String.format("the method %s is proxied.", method.getName())
-
-                ));
-        String result = userDao.queryUserInfoById(1L);
-        logger.info("测试结果：{}", result);
     }
 }

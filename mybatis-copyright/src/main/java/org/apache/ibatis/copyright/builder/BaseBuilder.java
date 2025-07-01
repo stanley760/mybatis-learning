@@ -1,6 +1,7 @@
 package org.apache.ibatis.copyright.builder;
 
 import org.apache.ibatis.copyright.session.Configuration;
+import org.apache.ibatis.copyright.type.TypeAliasRegistry;
 
 /**
  * @author ywb
@@ -12,8 +13,11 @@ public class BaseBuilder {
 
     protected final Configuration configuration;
 
+    protected final TypeAliasRegistry typeAliasRegistry;
+
     public BaseBuilder(Configuration configuration) {
         this.configuration = configuration;
+        this.typeAliasRegistry = this.configuration.getTypeAliasRegistry();
     }
 
     public Configuration getConfiguration() {

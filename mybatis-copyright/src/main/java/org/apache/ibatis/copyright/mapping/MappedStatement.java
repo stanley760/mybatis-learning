@@ -2,6 +2,7 @@ package org.apache.ibatis.copyright.mapping;
 
 import org.apache.ibatis.copyright.session.Configuration;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,10 +19,11 @@ public class MappedStatement {
 
     private SqlCommandType sqlCommandType;
 
-    private String sql;
     private String parameterType;
     private String resultType;
     private Map<Integer, String> parameterMap;
+
+    private BoundSql boundSql;
 
     MappedStatement() {
     }
@@ -29,12 +31,12 @@ public class MappedStatement {
     public static class Builder {
         private MappedStatement mappedStatement = new MappedStatement();
 
-        public Builder(Configuration configuration, String id, SqlCommandType sqlCommandType, String sql,
+        public Builder(Configuration configuration, String id, SqlCommandType sqlCommandType, BoundSql boundSql,
                        String parameterType, String resultType) {
             mappedStatement.configuration = configuration;
             mappedStatement.id = id;
             mappedStatement.sqlCommandType = sqlCommandType;
-            mappedStatement.sql = sql;
+            mappedStatement.boundSql = boundSql;
             mappedStatement.parameterType = parameterType;
             mappedStatement.resultType = resultType;
         }
@@ -50,8 +52,8 @@ public class MappedStatement {
         return id;
     }
 
-    public String getSql() {
-        return sql;
+    public BoundSql getBoundSql() {
+        return boundSql;
     }
 
     public SqlCommandType getSqlCommandType() {

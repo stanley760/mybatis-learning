@@ -1,7 +1,11 @@
 package org.apache.ibatis.copyright.session;
 
 import org.apache.ibatis.copyright.binding.MapperRegistry;
+import org.apache.ibatis.copyright.datasource.druid.DruidDataSourceFactory;
+import org.apache.ibatis.copyright.mapping.Environment;
 import org.apache.ibatis.copyright.mapping.MappedStatement;
+import org.apache.ibatis.copyright.transaction.jdbc.JdbcTransactionFactory;
+import org.apache.ibatis.copyright.type.TypeAliasRegistry;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +19,8 @@ import java.util.Map;
 public class Configuration {
 
 
+
+    protected Environment environment;
     /**
      * 映射注册机
      */
@@ -22,11 +28,23 @@ public class Configuration {
 
 
 
+    protected final TypeAliasRegistry typeAliasRegistry = new TypeAliasRegistry();
     /**
      * 映射的语句，存在Map里
      */
 
     protected final Map<String, MappedStatement> mappedStatements = new HashMap<>();
+
+    public Configuration(Environment environment) {
+        this();
+        this.environment = environment;
+    }
+
+
+    public Configuration() {
+        typeAliasRegistry.registerTypeAlias("JDBC", JdbcTransactionFactory.class);
+        typeAliasRegistry.registerTypeAlias("DRUID", DruidDataSourceFactory.class);
+    }
 
     public void addMapper(String packageName) {
         mapperRegistry.addMapper(packageName);
@@ -58,5 +76,18 @@ public class Configuration {
 
     public boolean hasStatement(String statementName) {
         return mappedStatements.containsKey(statementName);
+    }
+
+    public Environment getEnvironment() {
+        return environment;
+    }
+
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
+    }
+
+
+    public TypeAliasRegistry getTypeAliasRegistry() {
+        return typeAliasRegistry;
     }
 }
